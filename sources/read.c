@@ -6,12 +6,12 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 17:20:01 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/18 20:33:20 by jblack-b         ###   ########.fr       */
+/*   Updated: 2019/02/24 01:47:38 by olesgedz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "fractol.h"
+#include "mlx_lib.h"
 #include <limits.h>
 
 static int				ft_cleanup(t_list **lst, t_map **map)

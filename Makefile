@@ -6,11 +6,11 @@
 #    By: vbrazhni <vbrazhni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/05 13:39:23 by vbrazhni          #+#    #+#              #
-#    Updated: 2019/02/17 20:01:41 by jblack-b         ###   ########.fr        #
+#    Updated: 2019/02/24 02:12:45 by olesgedz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fractol
+NAME = mlxlib.a
 
 CC = gcc
 FLAGS = -O3
@@ -25,13 +25,12 @@ MINILIBX = $(MINILIBX_DIRECTORY)libmlx.a
 MINILIBX_DIRECTORY = ./minilibx_macos/
 MINILIBX_HEADERS = $(MINILIBX_DIRECTORY)
 
-HEADERS_LIST = fractol.h
-HEADERS_DIRECTORY = ./includes/
+HEADERS_LIST = mlx_lib.h
+HEADERS_DIRECTORY = includes/
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 SOURCES_DIRECTORY = sources/
-SOURCES_LIST = main.c\
-	cleanup.c\
+SOURCES_LIST = cleanup.c\
 	color.c\
 	control.c\
 	draw.c\
@@ -58,7 +57,8 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(MINILIBX) $(OBJECTS_DIRECTORY) $(OBJECTS)
-	@$(CC) $(FLAGS) $(LIBRARIES) $(INCLUDES) $(OBJECTS) -o $(NAME)
+	@ar rc $(NAME) $(OBJECTS)
+	@ranlib $(NAME)
 	@echo "\n$(NAME): $(GREEN)object files were created$(RESET)"
 	@echo "$(NAME): $(GREEN)$(NAME) was created$(RESET)"
 

@@ -6,11 +6,11 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 17:26:20 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/12 00:54:41 by olesgedz         ###   ########.fr       */
+/*   Updated: 2019/02/24 01:47:28 by olesgedz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "mlx_lib.h"
 # include <time.h>
 
 int		ft_mouse_release(int button, int x, int y, t_mlx *mlx)
