@@ -6,13 +6,13 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 16:12:18 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/24 01:47:05 by olesgedz         ###   ########.fr       */
+/*   Updated: 2019/02/24 02:29:38 by olesgedz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef MLX_LIB_H
-# define MLX_LIB_H
+#ifndef MLXLIB_H
+# define MLXLIB_H
 # include <stdint.h>
 # include <time.h>
 # include <string.h>

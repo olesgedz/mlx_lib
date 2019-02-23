@@ -6,14 +6,14 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 17:38:42 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/24 01:49:49 by olesgedz         ###   ########.fr       */
+/*   Updated: 2019/02/24 02:29:20 by olesgedz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "mlx.h"
 #include "libft.h"
-#include "mlx_lib.h"
+#include "mlxlib.h"
 
 int			ft_error(char *reason)
 {

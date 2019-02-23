@@ -6,12 +6,12 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 17:31:44 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/24 01:47:41 by olesgedz         ###   ########.fr       */
+/*   Updated: 2019/02/24 02:30:19 by olesgedz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "mlx_lib.h"
+#include "mlxlib.h"
 
 static t_vector		ft_rotate(t_vector p, t_cam *r)
 {

@@ -6,11 +6,11 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 17:18:58 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/24 01:46:48 by olesgedz         ###   ########.fr       */
+/*   Updated: 2019/02/24 02:29:27 by olesgedz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_lib.h"
+#include "mlxlib.h"
 #include <math.h>
 static int		ft_get_light(int start, int end, double percentage)
 {

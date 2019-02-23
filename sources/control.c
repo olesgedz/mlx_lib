@@ -6,11 +6,11 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 17:24:27 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/24 01:47:03 by olesgedz         ###   ########.fr       */
+/*   Updated: 2019/02/24 02:29:58 by olesgedz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_lib.h"
+#include "mlxlib.h"
 #include "mlx.h"
 #include <stdlib.h>
 
