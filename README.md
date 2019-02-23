@@ -1,2 +1,2 @@
 # mlxlib
-liib
+lib
