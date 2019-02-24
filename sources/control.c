@@ -6,7 +6,7 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 17:24:27 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/24 02:29:58 by olesgedz         ###   ########.fr       */
+/*   Updated: 2019/02/25 01:18:55 by olesgedz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,26 +55,19 @@ void	ft_reset_view(t_mlx *mlx)
 	mlx->cam->offsety = 0;
 }
 
+
 int				ft_handle_keys_press(int key, t_mlx *mlx)
 {
 	mlx->keyboard->keys[key] = TRUE;
 	ft_press_move(mlx);
 	if (key == B_KEY)
-	{
-		mlx->ncolor += 1;
-		if (mlx->ncolor > 4)
-			mlx->ncolor = 0;
-	}
+		ft_switch_color(mlx);
 	if (key == F_KEY)
-	{
-		mlx->nfractal += 1;
-		if (mlx->nfractal > FRACTAL_N - 1)
-			mlx->nfractal = 0;
-	}
+		ft_next_fractal(mlx);
 	if (key == C_KEY)
-		mlx->c =  (mlx->c == 0 ? 1 : 0);
+		ft_mouse_parameters_switch(mlx);
 	if (key == M_KEY)
-		mlx->smooth = (mlx->smooth == 0 ? 1 : 0);
+		ft_switch_smoothing(mlx);
 	if (key == R_KEY)
 		ft_reset_view(mlx);
 	if (key == ESC_KEY)

@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pixel.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/05 19:07:36 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/25 01:19:14 by olesgedz         ###   ########.fr       */
+/*   Created: 2019/02/04 17:14:14 by jblack-b          #+#    #+#             */
+/*   Updated: 2019/02/25 01:21:58 by olesgedz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <fcntl.h>
 #include "mlxlib.h"
+#include "mlx.h"
+#include "libft.h"
 
-void			ft_image_set_pixel(t_image *image, int x, int y, int color)
+int		main(int argc, char **argv)
 {
-	if (y >= 0 && x >= 0 && y < WIN_HEIGHT && x < WIN_WIDTH)
-		*(int *)(image->ptr + ((x + y * WIN_WIDTH) * image->bpp)) = color;
-}
-
-void			ft_image_set_pixel_tree(t_image *image, int x, int y, int color)
-{
-	if (y >= 0 && x >= 0 && y < FRAC_H && x < FRAC_W)
-		*(int *)(image->ptr + ((x + y * WIN_WIDTH) * image->bpp)) = color;
+	t_mlx	*mlx;
+	if ((mlx = ft_init("Fract_ol - ")) == NULL)
+		return (ft_error("error: mlx couldn't init"));
+	ft_render(mlx);
+	ft_mlx_hooks(mlx);
+	mlx_loop(mlx->mlx);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 17:27:18 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/24 02:30:02 by olesgedz         ###   ########.fr       */
+/*   Updated: 2019/02/25 01:19:01 by olesgedz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ char *ft_strchnew(size_t n, char c)
 	str = ft_memset(ft_strnew(n), c, n);
 	return(str);
 }
+
 static int			ft_draw_menu(t_mlx *mlx)
 {
 	int		y;
 	char *s;
+	char *a;
 	y = 0;
 	mlx_string_put(mlx->mlx, mlx->window,
 		FRAC_H + 10, y, 0xFFFFFFF, "How to Use");
@@ -45,11 +47,13 @@ static int			ft_draw_menu(t_mlx *mlx)
 	mlx_string_put(mlx->mlx, mlx->window,
 		FRAC_H + 10, y += 25, 0xFFFFFFF, "B to change color");
 	mlx_string_put(mlx->mlx, mlx->window,
-		FRAC_H + 10, y += 25, 0xFFFFFFF, ft_strjoin("Number of iterations: ", s = ft_itoa(mlx->n)));
+		FRAC_H + 10, y += 25, 0xFFFFFFF, s = ft_strjoin("Number of iterations: ",  a = ft_itoa(mlx->n)));
 	ft_strdel(&s);
+	ft_strdel(&a);
 	mlx_string_put(mlx->mlx, mlx->window,
-		FRAC_H + 10, y += 25, 0xFFFFFFF, ft_strjoin("scale: ", s = ft_itoa((int)mlx->cam->scale)));
+		FRAC_H + 10, y += 25, 0xFFFFFFF,  s = ft_strjoin("scale: ", a = ft_itoa((int)mlx->cam->scale)));
 	ft_strdel(&s);
+	ft_strdel(&a);
 	mlx_string_put(mlx->mlx, mlx->window,
 		FRAC_H + 120, y += 35, 0xFFFFFFF, s = ft_strjoin(ft_strchnew(((18 - ft_strlen(mlx->fractal[mlx->nfractal].name)) / 2), ' '),
 		 mlx->fractal[mlx->nfractal].name));
@@ -361,45 +365,12 @@ void	ft_draw_switch(t_mlx *mlx)
 	}
 }
 
-// void ft_draw_right_arr(t_mlx *mlx, t_button *button)
-// {
-// 	int y;
-// 	int x;
-// 	int d;
-//
-// 	y = button->position.y;
-// 	d =  button->width;
-// 	while (y < button->position.y + button->height / 2)
-// 	{
-// 		x = button->position.x;
-// 		while(x < button->position.x + button->width - d)
-// 		{
-// 			ft_image_set_pixel(mlx->image, x, y, button->color);
-// 			x++;
-// 		}
-// 		d-=2;
-// 		y++;
-// 	}
-// 	while (y < button->position.y + button->height)
-// 	{
-// 		x = button->position.x;
-// 		while(x < button->position.x + button->width - d)
-// 		{
-// 			ft_image_set_pixel(mlx->image, x, y, button->color);
-// 			x++;
-// 		}
-// 		d+=2;
-// 		y++;
-// 	}
-// }
-
-
 float sign (t_point *p1, t_point *p2, t_point *p3)
 {
     return (p1->x - p3->x) * (p2->y - p3->y) - (p2->x - p3->x) * (p1->y - p3->y);
 }
 
-int  PointInTriangle (t_point *pt, t_point *v1, t_point *v2, t_point *v3)
+int  ft_points_in_triangle(t_point *pt, t_point *v1, t_point *v2, t_point *v3)
 {
     float d1, d2, d3;
     int has_neg, has_pos;
@@ -414,7 +385,7 @@ int  PointInTriangle (t_point *pt, t_point *v1, t_point *v2, t_point *v3)
     return !(has_neg && has_pos);
 }
 
-void ft_draw_tr(t_mlx *mlx, t_button *button, t_triangle *triangle)
+void ft_draw_tr(t_mlx *mlx, t_button *button, t_figure *triangle)
 {
 	int y;
 	int x;
@@ -425,9 +396,9 @@ void ft_draw_tr(t_mlx *mlx, t_button *button, t_triangle *triangle)
 		x = button->position.x;
 		while(x < button->position.x + button->width)
 		{
-			if	(PointInTriangle(&((t_point){x, y}), &((t_point){button->position.x + triangle->p1.x, button->position.y + triangle->p1.y}),
-			 &((t_point){button->position.x + triangle->p2.x, button->position.y + triangle->p2.y}),
-			  &((t_point){button->position.x + triangle->p3.x, button->position.y  + triangle->p3.y})))
+			if	(ft_points_in_triangle(&((t_point){x, y}), &((t_point){button->position.x + triangle->p[0].x, button->position.y + triangle->p[0].y}),
+			 &((t_point){button->position.x + triangle->p[1].x, button->position.y + triangle->p[1].y}),
+			  &((t_point){button->position.x + triangle->p[2].x, button->position.y  + triangle->p[2].y})))
 				ft_image_set_pixel(mlx->image, x, y, triangle->color);
 			x++;
 		}
@@ -435,6 +406,34 @@ void ft_draw_tr(t_mlx *mlx, t_button *button, t_triangle *triangle)
 	}
 }
 
+int  ft_points_in_circle(t_point *pt, t_point *center, t_point *radius, t_point *v3)
+{
+	if (((sqrt(pow((pt->x - center->x), 2) + pow((pt->y - center->y), 2))) < radius->x))
+		return (1);
+    return (0);
+}
+
+
+void ft_draw_cr(t_mlx *mlx, t_button *button, t_figure *circle)
+{
+	int y;
+	int x;
+
+	y = button->position.y;
+	while (y < button->position.y + button->height)
+	{
+		x = button->position.x;
+		while(x < button->position.x + button->width)
+		{
+			if	(ft_points_in_circle(&((t_point){x, y}), &((t_point){button->position.x + circle->p[0].x, button->position.y + circle->p[0].y}),
+			 &((t_point){circle->p[1].x, button->position.y + circle->p[1].y}),
+			  &((t_point){button->position.x + circle->p[2].x, button->position.y  + circle->p[2].y})))
+				ft_image_set_pixel(mlx->image, x, y, circle->color);
+			x++;
+		}
+		y++;
+	}
+}
 
 void	ft_draw_onebutton(t_mlx *mlx, t_button *button)
 {
@@ -442,11 +441,12 @@ void	ft_draw_onebutton(t_mlx *mlx, t_button *button)
 	//printf("%d\n",button->figures->p2.x);
 	while (i < 3)
 	{
-		ft_draw_tr(mlx, button, button->figures + i);
+		if (button->figures[i].draw != NULL)
+			button->figures[i].draw(mlx, button, button->figures + i);
 		i++;
 	}
-		//
 }
+
 void ft_draw_buttons(t_mlx *mlx)
 {
 	int i;
@@ -455,7 +455,6 @@ void ft_draw_buttons(t_mlx *mlx)
 	while(i < BUTTONS_N)
 	{
 		ft_draw_onebutton(mlx, mlx->buttons + i);
-		//ft_draw_right_arr(mlx, mlx->buttons + i);
 		i++;
 	}
 
