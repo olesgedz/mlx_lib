@@ -6,7 +6,7 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 16:12:18 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/26 21:45:33 by jblack-b         ###   ########.fr       */
+/*   Updated: 2019/02/26 22:52:45 by jblack-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -245,4 +245,13 @@ void				ft_clear_image(t_image *image);
 void				ft_draw_background(t_mlx *mlx);
 t_image				*ft_new_image(t_mlx *mlx);
 t_image				*ft_del_image(t_mlx *mlx, t_image *img);
+void 				ft_draw_cr(t_mlx *mlx, t_button *button, t_figure *circle);
+void 				ft_draw_tr(t_mlx *mlx, t_button *button, t_figure *triangle);
+void				ft_image_set_pixel(t_image *image, int x, int y, int color);
+void				ft_plotline(t_mlx *mlx, t_point p1, t_point p2);
+double				ft_percent(int start, int end, int current);
+int					ft_get_color(int c1, int c2, double p);
+int					ft_get_light(int start, int end, double percentage);
+t_color				clerp(t_color c1, t_color c2, double p);
+int 				ft_range_search(t_button *button, t_point *mouse);
 #endif
