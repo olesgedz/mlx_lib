@@ -6,7 +6,7 @@
 #    By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/05 13:39:23 by jblack-b          #+#    #+#              #
-#    Updated: 2019/02/26 21:45:49 by jblack-b         ###   ########.fr        #
+#    Updated: 2019/02/26 22:53:03 by jblack-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 SOURCES_DIRECTORY = sources/
 SOURCES_LIST = ft_clear_image.c ft_image_set_pixel.c  ft_draw_background.c \
- ft_new_image.c ft_del_image.c ft_error.c
+ft_new_image.c ft_del_image.c ft_error.c ft_draw_cr.c ft_draw_tr.c ft_plotline.c\
+ft_percent.c ft_clerp.c ft_get_color.c ft_get_light.c ft_range_search.c
 
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
