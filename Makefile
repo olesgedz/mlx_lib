@@ -6,7 +6,7 @@
 #    By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/05 13:39:23 by jblack-b          #+#    #+#              #
-#    Updated: 2019/02/26 21:26:12 by jblack-b         ###   ########.fr        #
+#    Updated: 2019/02/26 21:45:49 by jblack-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ HEADERS_DIRECTORY = includes/
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 SOURCES_DIRECTORY = sources/
-SOURCES_LIST = ft_clear_image.c ft_image_set_pixel.c  ft_draw_background.c
+SOURCES_LIST = ft_clear_image.c ft_image_set_pixel.c  ft_draw_background.c \
+ ft_new_image.c ft_del_image.c ft_error.c
 
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
