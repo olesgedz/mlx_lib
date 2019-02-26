@@ -6,7 +6,7 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 16:12:18 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/25 01:18:07 by olesgedz         ###   ########.fr       */
+/*   Updated: 2019/02/26 21:26:29 by jblack-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -277,4 +277,6 @@ void	ft_mouse_parameters_switch(t_mlx *mlx);
 void	ft_switch_color(t_mlx *mlx);
 void	ft_next_fractal(t_mlx *mlx);
 void	ft_switch_smoothing(t_mlx *mlx);
+void		ft_clear_image(t_image *image);
+void			ft_draw_background(t_mlx *mlx);
 #endif
