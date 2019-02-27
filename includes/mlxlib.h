@@ -6,7 +6,7 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 16:12:18 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/27 17:29:18 by jblack-b         ###   ########.fr       */
+/*   Updated: 2019/02/27 21:52:27 by jblack-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,29 +200,26 @@ typedef struct			s_triangle
 
 typedef struct s_figure		t_figure;
 typedef struct s_button		t_button;
-typedef void			(*t_f_draw)(t_mlx *mlx,
+typedef void				(*t_f_draw)(t_mlx *mlx,\
 		t_button *button, t_figure *figure);
 
-typedef struct s_figure
+struct					s_figure
 {
 	t_point		*p;
-	int 		color;
-	t_f_draw 	draw;
-}				t_figure;
+	int			color;
+	t_f_draw	draw;
+};
 
-
-typedef struct s_button
+struct					s_button
 {
-	t_point position;
-	int width;
-	int height;
-	t_f_pressed pressed;
-	t_figure *figures;
-} t_button;
+	t_point		position;
+	int			width;
+	int			height;
+	t_f_pressed	pressed;
+	t_figure	*figures;
+};
 
-
-
-typedef struct		s_mlx
+struct					s_mlx
 {
 	void		*mlx;
 	void		*window;
@@ -232,38 +229,41 @@ typedef struct		s_mlx
 	t_mouse		*mouse;
 	t_keyboard	*keyboard;
 	double		**zbuf;
-	t_button    *buttons;
-	clock_t clock_prg;
-	int c;
-	int n;
-	int smooth;
-	double *colors;
-	t_color *color;
-	int ncolor;
-	t_palette *palette;
-	t_pixel pixel;
+	t_button	*buttons;
+	clock_t		clock_prg;
+	int			c;
+	int			n;
+	int			smooth;
+	double		*colors;
+	t_color		*color;
+	int			ncolor;
+	t_palette	*palette;
+	t_pixel		pixel;
 	t_render	render;
-	t_pixel *data;
-	t_fractal *fractal;
-	int nfractal;
-	float size_tree;
-	float size_tree2;
-}					t_mlx;
+	t_pixel		*data;
+	t_fractal	*fractal;
+	int			nfractal;
+	float		size_tree;
+	float		size_tree2;
+};
 
-int					ft_error(char *reason);
-void				ft_change_color(t_mlx *mlx, int ncolor);
-void				ft_clear_image(t_image *image);
-void				ft_draw_background(t_mlx *mlx);
-t_image				*ft_new_image(t_mlx *mlx);
-t_image				*ft_del_image(t_mlx *mlx, t_image *img);
-void 				ft_draw_cr(t_mlx *mlx, t_button *button, t_figure *circle);
-void 				ft_draw_tr(t_mlx *mlx, t_button *button, t_figure *triangle);
-void				ft_image_set_pixel(t_image *image, int x, int y, int color);
-void				ft_plotline(t_mlx *mlx, t_point p1, t_point p2);
-double				ft_percent(int start, int end, int current);
-int					ft_get_color(int c1, int c2, double p);
-int					ft_get_light(int start, int end, double percentage);
-t_color				clerp(t_color c1, t_color c2, double p);
-int 				ft_range_search(t_button *button, t_point *mouse);
+int						ft_error(char *reason);
+void					ft_change_color(t_mlx *mlx, int ncolor);
+void					ft_clear_image(t_image *image);
+void					ft_draw_background(t_mlx *mlx);
+t_image					*ft_new_image(t_mlx *mlx);
+t_image					*ft_del_image(t_mlx *mlx, t_image *img);
+void					ft_draw_cr(t_mlx *mlx,\
+						t_button *button, t_figure *circle);
+void					ft_draw_tr(t_mlx *mlx, \
+						t_button *button, t_figure *triangle);
+void					ft_image_set_pixel(t_image *image, \
+						int x, int y, int color);
+void					ft_plotline(t_mlx *mlx, t_point p1, t_point p2);
+double					ft_percent(int start, int end, int current);
+int						ft_get_color(int c1, int c2, double p);
+int						ft_get_light(int start, int end, double percentage);
+t_color					clerp(t_color c1, t_color c2, double p);
+int						ft_range_search(t_button *button, t_point *mouse);
 
 #endif
