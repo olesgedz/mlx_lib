@@ -6,19 +6,12 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 16:12:18 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/26 22:52:45 by jblack-b         ###   ########.fr       */
+/*   Updated: 2019/02/27 17:29:18 by jblack-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef MLXLIB_H
 # define MLXLIB_H
-# include <stdint.h>
-# include <time.h>
-# include <string.h>
-#include <pthread.h>
-#include "mlx.h"
-#include "libft.h"
 # define WIN_WIDTH		1680
 # define WIN_HEIGHT		720
 # define MENU_WIDTH		400
@@ -63,46 +56,55 @@
 # define THREADS 20
 # define FRACTAL_N 6
 # define BUTTONS_N 3
-#define CHAR_HEIGHT 100
-#define CHAR_WIDTH 100
-typedef struct		s_line
+# define CHAR_HEIGHT 100
+# define CHAR_WIDTH 100
+
+# include <stdint.h>
+# include <time.h>
+# include <string.h>
+# include <pthread.h>
+# include "mlx.h"
+# include "libft.h"
+
+typedef struct			s_line
 {
-	t_point	start;
-	t_point	end;
+	t_point		start;
+	t_point		end;
 	int			dx;
 	int			dy;
 	int			sx;
 	int			sy;
 	int			err;
 	int			err2;
-}					t_line;
+}						t_line;
 
-
-typedef struct		s_palette
+typedef struct			s_palette
 {
 	uint8_t		count;
 	int			cycle;
 	int			colors[16];
-}					t_palette;
+}						t_palette;
 
-typedef struct		s_cam
+typedef struct			s_cam
 {
 	double		offsetx;
 	double		offsety;
 	double		x;
 	double		y;
 	double		z;
-	double			scale;
+	double		scale;
 	double		**matrix;
-}					t_cam;
-typedef struct		s_vector
+}						t_cam;
+
+typedef struct			s_vector
 {
 	double		x;
 	double		y;
 	double		z;
 	int			color;
-}					t_vector;
-typedef struct		s_map
+}						t_vector;
+
+typedef struct			s_map
 {
 	int			width;
 	int			height;
@@ -111,104 +113,113 @@ typedef struct		s_map
 	t_vector	**vectors;
 	double		*colors;
 	int			ncolor;
-}					t_map;
-typedef struct		s_mouse
+}						t_map;
+
+typedef struct			s_mouse
 {
 	char		isdown;
 	int			x;
 	int			y;
-	int 	lastx;
-	int 	lasty;
-}					t_mouse;
-typedef struct		s_image
+	int			lastx;
+	int			lasty;
+}						t_mouse;
+
+typedef struct			s_image
 {
 	void		*image;
 	char		*ptr;
 	int			bpp;
 	int			stride;
 	int			endian;
-}					t_image;
-typedef struct		s_keyboard
+}						t_image;
+
+typedef struct			s_keyboard
 {
 	int		*keys;
-}					t_keyboard;
+}						t_keyboard;
 
-typedef struct		s_rgba
+typedef struct			s_rgba
 {
 	uint8_t		b;
 	uint8_t		g;
 	uint8_t		r;
 	uint8_t		a;
-}					t_rgba;
+}						t_rgba;
 
-typedef struct		s_complex
+typedef struct			s_complex
 {
 	double		r;
 	double		i;
-}					t_complex;
+}						t_complex;
 
-typedef struct		s_pixel
+typedef struct			s_pixel
 {
 	t_complex	c;
 	double		i;
-}					t_pixel;
-typedef union		u_color
+}						t_pixel;
+
+typedef union			u_color
 {
 	int			value;
 	t_rgba		rgba;
-}					t_color;
+}						t_color;
 
 typedef struct s_mlx	t_mlx;
-typedef struct		s_thread
+
+typedef struct			s_thread
 {
 	int				id;
-	t_mlx			*mlx; //fdsfs
-}					t_thread;
-typedef struct		s_render
+	t_mlx			*mlx;
+}						t_thread;
+
+typedef struct			s_render
 {
 	pthread_t		threads[THREADS];
 	t_thread		args[THREADS];
-}					t_render;
+}						t_render;
 
-typedef t_pixel		(*f_pixel)(t_mlx *mlx, int x, int y);
+typedef t_pixel			(*t_f_pixel)(t_mlx *mlx, int x, int y);
 
-typedef struct		s_fractal
+typedef struct			s_fractal
 {
 	char			*name;
-	f_pixel			pixel;
+	t_f_pixel		pixel;
 	double			ca;
 	double			cb;
-}					t_fractal;
+}						t_fractal;
 
-typedef void	(*t_pressed)(t_mlx *mlx);
+typedef void			(*t_f_pressed)(t_mlx *mlx);
 
-typedef struct s_triangle
+typedef struct			s_triangle
 {
-	t_point p1;
-	t_point p2;
-	t_point p3;
-	int color;
-} t_triangle;
+	t_point		p1;
+	t_point		p2;
+	t_point		p3;
+	int			color;
+}						t_triangle;
 
-typedef  struct s_figure t_figure;
-typedef  struct s_button t_button;
-typedef void		(*f_draw)(t_mlx *mlx, t_button *button, t_figure *figure);
+typedef struct s_figure		t_figure;
+typedef struct s_button		t_button;
+typedef void			(*t_f_draw)(t_mlx *mlx,
+		t_button *button, t_figure *figure);
 
 typedef struct s_figure
 {
-	t_point *p;
-	int color;
-	f_draw draw;
-}	t_figure;
+	t_point		*p;
+	int 		color;
+	t_f_draw 	draw;
+}				t_figure;
+
 
 typedef struct s_button
 {
 	t_point position;
 	int width;
 	int height;
-	t_pressed pressed;
+	t_f_pressed pressed;
 	t_figure *figures;
 } t_button;
+
 
 
 typedef struct		s_mlx
@@ -254,4 +265,5 @@ int					ft_get_color(int c1, int c2, double p);
 int					ft_get_light(int start, int end, double percentage);
 t_color				clerp(t_color c1, t_color c2, double p);
 int 				ft_range_search(t_button *button, t_point *mouse);
+
 #endif

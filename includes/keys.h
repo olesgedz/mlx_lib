@@ -6,13 +6,12 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 20:02:12 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/26 21:22:58 by jblack-b         ###   ########.fr       */
+/*   Updated: 2019/02/27 16:54:57 by jblack-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KEYS_H
-#define KEYS_H
-
+# define KEYS_H
 # define ESC_KEY	53
 # define W_KEY 13
 # define A_KEY 0
@@ -29,8 +28,6 @@
 # define L_AR_KEY 43
 # define B_KEY 11
 # define R_KEY 15
-
-
 # define SCROLL_UP		4
 # define SCROLL_DOWN	5
 # define MOUSE_L_KEY	1
