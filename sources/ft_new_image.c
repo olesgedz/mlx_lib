@@ -6,12 +6,13 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 21:33:21 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/26 21:38:35 by jblack-b         ###   ########.fr       */
+/*   Updated: 2019/02/27 16:38:16 by jblack-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlxlib.h"
 #include "mlx.h"
+
 t_image		*ft_new_image(t_mlx *mlx)
 {
 	t_image		*img;

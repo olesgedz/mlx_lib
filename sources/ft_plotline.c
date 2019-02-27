@@ -6,7 +6,7 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 22:24:08 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/26 22:27:08 by jblack-b         ###   ########.fr       */
+/*   Updated: 2019/02/27 16:49:46 by jblack-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static int			ft_put_points(t_mlx *mlx,
 	else
 		percentage = ft_percent(l->start.y, l->end.y, p1->y);
 	ft_image_set_pixel(mlx->image, (int)p1->x,
-	(int)p1->y, ft_get_color(mlx->palette[mlx->ncolor].colors[0], mlx->palette[mlx->ncolor].colors[1], percentage));
+	(int)p1->y, ft_get_color(mlx->palette[mlx->ncolor].colors[0],
+		mlx->palette[mlx->ncolor].colors[1], percentage));
 	l->err2 = l->err;
 	if (l->err2 > -l->dx)
 	{
@@ -37,7 +38,7 @@ static int			ft_put_points(t_mlx *mlx,
 	return (0);
 }
 
-void			ft_plotline(t_mlx *mlx, t_point p1, t_point p2)
+void				ft_plotline(t_mlx *mlx, t_point p1, t_point p2)
 {
 	t_line	line;
 
