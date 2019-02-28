@@ -6,13 +6,13 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 16:12:18 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/27 21:52:27 by jblack-b         ###   ########.fr       */
+/*   Updated: 2019/02/28 21:40:59 by jblack-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MLXLIB_H
 # define MLXLIB_H
-# define WIN_WIDTH		1680
+# define WIN_WIDTH		1200
 # define WIN_HEIGHT		720
 # define MENU_WIDTH		400
 # define FRAC_W		720
@@ -55,7 +55,7 @@
 # define FPS 200
 # define THREADS 20
 # define FRACTAL_N 6
-# define BUTTONS_N 3
+# define BUTTONS_N 5
 # define CHAR_HEIGHT 100
 # define CHAR_WIDTH 100
 
