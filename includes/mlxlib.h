@@ -6,7 +6,7 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 16:12:18 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/03/01 22:09:08 by jblack-b         ###   ########.fr       */
+/*   Updated: 2019/03/01 23:30:53 by jblack-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,6 +219,8 @@ struct					s_button
 	t_figure	*figures;
 };
 
+typedef struct s_data t_data;
+
 struct					s_mlx
 {
 	void		*mlx;
@@ -231,19 +233,9 @@ struct					s_mlx
 	double		**zbuf;
 	t_button	*buttons;
 	clock_t		clock_prg;
-	int			c;
-	int			n;
-	int			smooth;
-	double		*colors;
-	t_color		*color;
-	int			ncolor;
+	t_data		*data;
 	t_palette	*palette;
-	t_pixel		pixel;
-	t_render	render;
-	t_fractal	*fractal;
-	int			nfractal;
-	float		size_tree;
-	float		size_tree2;
+	int			ncolor;
 };
 
 int						ft_error(char *reason);
