@@ -6,7 +6,7 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 16:12:18 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/28 21:40:59 by jblack-b         ###   ########.fr       */
+/*   Updated: 2019/03/01 17:38:50 by jblack-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@
 # define COLOR_JAFFA		0xEF8633
 # define COLOR_SAFFRON		0xF3AF3D
 # define FPS 200
-# define THREADS 20
+# define THREADS 30
 # define FRACTAL_N 6
 # define BUTTONS_N 5
 # define CHAR_HEIGHT 100
