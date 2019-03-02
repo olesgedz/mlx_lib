@@ -6,14 +6,14 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 22:24:08 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/02/27 16:49:46 by jblack-b         ###   ########.fr       */
+/*   Updated: 2019/03/02 17:19:36 by jblack-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlxlib.h"
 
 static int			ft_put_points(t_mlx *mlx,
-		t_line *l, t_point *p1, t_point *p2)
+		t_line *l, t_point *p1)
 {
 	double percentage;
 
@@ -54,6 +54,6 @@ void				ft_plotline(t_mlx *mlx, t_point p1, t_point p2)
 	line.sy = (int)p1.y < (int)p2.y ? 1 : -1;
 	line.err = (line.dx > line.dy ? line.dx : -line.dy) / 2;
 	while (((int)p1.x != (int)p2.x || (int)p1.y != (int)p2.y))
-		if (ft_put_points(mlx, &line, &p1, &p2))
+		if (ft_put_points(mlx, &line, &p1))
 			break ;
 }

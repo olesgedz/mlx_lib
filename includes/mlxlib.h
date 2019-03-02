@@ -6,7 +6,7 @@
 /*   By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 16:12:18 by jblack-b          #+#    #+#             */
-/*   Updated: 2019/03/01 23:30:53 by jblack-b         ###   ########.fr       */
+/*   Updated: 2019/03/02 17:12:23 by jblack-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,7 +219,7 @@ struct					s_button
 	t_figure	*figures;
 };
 
-typedef struct s_data t_data;
+typedef struct s_data	t_data;
 
 struct					s_mlx
 {

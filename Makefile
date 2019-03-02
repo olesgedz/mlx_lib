@@ -6,14 +6,14 @@
 #    By: jblack-b <jblack-b@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/05 13:39:23 by jblack-b          #+#    #+#              #
-#    Updated: 2019/02/26 22:53:03 by jblack-b         ###   ########.fr        #
+#    Updated: 2019/03/02 17:12:43 by jblack-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = mlxlib.a
 
 CC = gcc
-FLAGS = -O3
+FLAGS = -O3 -Wall -Wextra -Werror
 LIBRARIES = -lmlx -lm -lft -L$(LIBFT_DIRECTORY) -L$(MINILIBX_DIRECTORY) -framework OpenGL -framework AppKit
 INCLUDES = -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS) -I$(MINILIBX_HEADERS)
 
